@@ -10,6 +10,8 @@ import MyAd from "./components/MyAd";
 import { useSelector } from "react-redux";
 import AddProduct from "./components/AddProduct";
 import Profile from "./components/Profile";
+import LoginPopup from "./components/LoginPopup";
+import SignIn from "./components/SignIn";
 
 function App() {
   const result = useSelector((state) => state);
@@ -44,6 +46,13 @@ function App() {
           
           <Route exact path="/profile">
             <Profile />
+          </Route>
+          <Route exact path="/loginpopup">
+            <LoginPopup />
+          </Route>
+
+          <Route exact path="/signin">
+            <SignIn />
           </Route>
         </Switch>
       </Router>

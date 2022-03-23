@@ -1,52 +1,131 @@
 import styled from "styled-components";
+import { useHistory } from 'react-router';
 
 const LoginPopup = (props) => {
+    const history = useHistory();
+    const handleClick = () => history.push('/signin');
+    const handleClicks = () => history.push('/home');
+    
     return (
         <PopUp>
             <Box>
-                <span className="close-icon" onClick={props.handleClose}>X</span>
-                {props.content}
+              <SignUp>
+                  <h4>Welcome to</h4>
+                  <h3>SWAPPIFY</h3>
+                  <p>SignIn to your account</p>
+                  <button onClick={handleClick}>Sign In</button>
+                  </SignUp> 
+              <SignIn>
+                  <h3>Create Account</h3>
+                  <label>Email</label>
+                  <input type="text" placeholder="Enter your email"/>
+                  <label>Username</label>
+                  <input type="text" placeholder="Choose your username" />
+                  <label>Password</label>
+                  <input type="text" placeholder="Enter a password" />
+                  <button onClick={handleClicks}>Sign Up</button>
+                  </SignIn> 
             </Box>
         </PopUp>
     )
 }
 
 const PopUp = styled.div`
-position: fixed;
-background: #00000050;
-width: 100%;
-height: 100vh;
-top: 0;
-left: 0;
+margin: auto;
+padding: 60px 60px ;
 `;
 
 const Box = styled.div`
-position: relative;
-width: 70%;
-margin: 0 auto;
-height: auto;
-max-height: 70vh;
-margin-top: calc(100vh - 85vh - 20px);
-background-color: #fff;
-border-radius: 4px;
-padding: 20px;
-border: 1px solid #999;
-overflow: auto;
+display: flex;
+margin-top: 90px;
+margin-left: 150px;
+margin-right: 150px;
+height: 80vh;
+width: 80%;
+border: 1px solid #ccc;
+border-radius: 5px;
 
-.close-icon {
-content: 'x';
+`;
+
+const SignUp = styled.div`
+flex: 0.4;
+/* margin-left: 40px;
+margin-top: 180px; */
+background-color: #7f00ff;
+
+h4 {
+text-align: center;
+margin-left: 20px;
+margin-top: 200px;
+font-size: 40px;
+font-weight: normal;
+color: #fff;
+margin-bottom: 1px;
+}
+
+h3 {
+    text-align: center;
+margin-left: 20px;
+font-size: 45px;
+font-weight: bold;
+color: #fff;
+padding: 2px 2px;
+margin-top: 5px;
+}
+
+p {
+    text-align: center;
+margin-left: 25px;
+color: lightgray;
+margin-top: 40px;
+font-size: 18px;
+}
+
+button {
+margin-top: 20px;
+margin-left: 170px;
+padding: 12px 30px;
+border-radius: 4px;
+border: none;
+text-align: center;
 cursor: pointer;
-  position: fixed;
-  right: calc(15% - 30px);
-  top: calc(100vh - 85vh - 33px);
-  background: #ededed;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  line-height: 20px;
-  text-align: center;
-  border: 1px solid #999;
-  font-size: 20px;  
+}
+`;
+
+const SignIn = styled.div`
+flex: 0.6;
+
+h3 {
+text-align: center;
+font-size: 30px;
+}
+
+label {
+font-size: 20px;
+margin-left: 30px;
+font-weight: normal;
+padding: 10px 12px;
+}
+
+input {
+height: 40px;
+width: 90%;
+margin-left: 40px;
+border: 1px solid #ccc;
+border-radius: 5px;
+margin-top: 15px;
+margin-bottom: 17px;
+}
+
+button {
+    margin-top: 30px;
+    margin-left: 260px;
+    padding: 12px 30px;
+    border-radius: 4px;
+    border: none;
+    background-color: #7f00ff;
+    color: #fff;
+    cursor: pointer;
 }
 `;
 

@@ -1,15 +1,17 @@
 import styled from "styled-components";
 //import LoginPopup from "./LoginPopup";
-import React, { useState } from 'react';
-import { Modal } from "./Modal";
-import './Model.css'
+import { useHistory } from 'react-router';
+//import { Modal } from "./Modal";
+//import './Model.css'
 
 const Login_Section = (props) => {
-    const [showModal, setShowModal] = useState(false);
+    const history = useHistory();
+    const handleClick = () => history.push('/loginpopup');
+    // const [showModal, setShowModal] = useState(false);
 
-    const openModal = () => {
-        setShowModal(true);
-    }
+    // const openModal = () => {
+    //     setShowModal(true);
+    // }
     return (
         <Section>
             <Hero>
@@ -18,11 +20,11 @@ const Login_Section = (props) => {
                 <img src="/images/team.svg" alt="" />
             </Hero>
             <Form>
-                <Google  onClick={openModal}>
+                <Google  onClick={handleClick}>
                     {/* onClick={() => props.signIn()} */}
                     <img src="/images/google.svg" alt="" />
                     Swap The Best Deals
-                    {showModal ? <Modal setShowModal={setShowModal} /> : null}
+                    
                 </Google>
             </Form>
         </Section>
